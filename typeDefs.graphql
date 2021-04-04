@@ -36,8 +36,16 @@ input PostPhotoInput {
 type Query {
   totalPhotos: Int!
   allPhotos: [Photo!]!
+  totalUsers: Int!
+  allUsers: [User!]! 
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
 }
 
 type Mutation {
   postPhoto(input: PostPhotoInput!): Photo!
+  githubAuth(code: String!): AuthPayload!
 }
