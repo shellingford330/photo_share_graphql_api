@@ -1,14 +1,15 @@
 module.exports = {
-  totalPhotos: (_, _, { db }) => {
+  totalPhotos: (_, args, { db }) => {
     return db.collection('photos').estimatedDocumentCount()
   },
-  allPhotos: (_, _, { db }) => {
+  allPhotos: (_, args, { db }) => {
     return db.collection('photos').find().toArray()
   },
-  totalUsers: (_, _, { db }) => {
+  totalUsers: (_, args, { db }) => {
     return db.collection('users').estimatedDocumentCount()
   },
-  allUsers: (_, _, { db }) => {
+  allUsers: (_, args, { db }) => {
     return db.collection('users').find().toArray()
   },
+  me: (parent, args, { currentUser }) => currentUser
 }

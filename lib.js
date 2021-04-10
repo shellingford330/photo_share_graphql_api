@@ -1,4 +1,3 @@
-
 const fetch = require('node-fetch')
 
 const requestGithubToken = credentials => 
@@ -14,9 +13,6 @@ const requestGithubToken = credentials =>
     }
   )
   .then(res => res.json())
-  .catch(error => {
-    throw new Error(JSON.stringify(error))
-  })
 
 const requestGithubUserAccount = token =>
   fetch(`https://api.github.com/user?access_token=${token}`)
